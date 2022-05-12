@@ -4,26 +4,51 @@
   "specVersion": "0.8",
   "name": "Greeting workflow",
   "description": "JSON based greeting workflow",
-  "start": "ChooseOnLanguage",
+  "start": "ChooseOnCountry",
   "functions": [
     {
       "name": "greetFunction",
       "type": "custom",
       "operation": "sysout"
+    },
+    {
+      "name": "translateGreetingFunction",
+      "operation": "service.yml#translateGreeting"
     }
   ],
   "states": [
+    {
+      "name": "ChooseOnCountry",
+      "type": "switch",
+      "dataConditions": [
+        {
+          "condition": "${ .country == \"US\" }",
+          "transition": "GreetInEnglish"
+        }
+      ],
+      "defaultCondition": {
+        "transition": "ChooseOnLanguage"
+      }
+    },
+    {
+      "name": "GreetInEnglish",
+      "type": "inject",
+      "data": {
+        "greeting": "Hello from Serverless Workflow, "
+      },
+      "transition": "GreetPerson"
+    },
     {
       "name": "ChooseOnLanguage",
       "type": "switch",
       "dataConditions": [
         {
-          "condition": "${ .language == \"English\" }",
-          "transition": "GreetInEnglish"
+          "condition": "${ .country == \"ES\" }",
+          "transition": "GreetInSpanish"
         },
         {
-          "condition": "${ .language == \"Spanish\" }",
-          "transition": "GreetInSpanish"
+          "condition": "${ .country == \"BR\" }",
+          "transition": "GreetInPortuguese"
         }
       ],
       "defaultCondition": {
@@ -31,19 +56,37 @@
       }
     },
     {
-      "name": "GreetInEnglish",
-      "type": "inject",
-      "data": {
-        "greeting": "Hello from JSON Workflow, "
-      },
-      "transition": "GreetPerson"
-    },
-    {
       "name": "GreetInSpanish",
       "type": "inject",
       "data": {
-        "greeting": "Saludos desde JSON Workflow, "
+        "language": "Spanish"
       },
+      "transition": "TranslateGreeting"
+    },
+    {
+      "name": "GreetInPortuguese",
+      "type": "inject",
+      "data": {
+        "language": "Portuguese"
+      },
+      "transition": "TranslateGreeting"
+    },
+    {
+      "name": "TranslateGreeting",
+      "type": "operation",
+      "actionMode": "sequential",
+      "actions": [
+        {
+          "name": "translateGreeting",
+          "functionRef": {
+            "refName": "translateGreetingFunction",
+            "arguments": {
+              "name": "${ .name }",
+              "language": "${ .language }"
+            }
+          }
+        }
+      ],
       "transition": "GreetPerson"
     },
     {
@@ -55,7 +98,7 @@
           "functionRef": {
             "refName": "greetFunction",
             "arguments": {
-              "message": ".greeting+.name"
+              "message": "${ .workflowdata.greeting }"
             }
           }
         }

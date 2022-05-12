@@ -18,8 +18,8 @@
       "type": "switch",
       "dataConditions": [
         {
-          "condition": "${ .language == \"English\" }",
-          "transition": "GreetInEnglish"
+          "condition": "${ .language == \"Portuguese\" }",
+          "transition": "GreetInPortuguese"
         },
         {
           "condition": "${ .language == \"Spanish\" }",
@@ -34,7 +34,15 @@
       "name": "GreetInEnglish",
       "type": "inject",
       "data": {
-        "greeting": "Hello from JSON Workflow, "
+        "greeting": "Hello from Serverless Workflow, ${ .name }"
+      },
+      "transition": "GreetPerson"
+    },
+    {
+      "name": "GreetInPortuguese",
+      "type": "inject",
+      "data": {
+        "greeting": "Olá do Serverless Workflow, ${ .name }"
       },
       "transition": "GreetPerson"
     },
@@ -42,7 +50,7 @@
       "name": "GreetInSpanish",
       "type": "inject",
       "data": {
-        "greeting": "Saludos desde JSON Workflow, "
+        "greeting": "Saludos desde Serverless Workflow, ${ .name }"
       },
       "transition": "GreetPerson"
     },
