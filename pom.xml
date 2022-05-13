@@ -57,5 +57,6 @@
     <modules>
         <module>getting-started-with-sw</module>
         <module>getting-started-with-sw-service</module>
+        <module>translation-service</module>
     </modules>
 </project>

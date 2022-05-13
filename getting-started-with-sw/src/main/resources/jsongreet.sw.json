@@ -7,13 +7,8 @@
   "start": "ChooseOnCountry",
   "functions": [
     {
-      "name": "greetFunction",
-      "type": "custom",
-      "operation": "sysout"
-    },
-    {
       "name": "translateGreetingFunction",
-      "operation": "service.yml#translateGreeting"
+      "operation": "translation-service.yml#translate"
     }
   ],
   "states": [
@@ -24,26 +19,9 @@
         {
           "condition": "${ .country == \"US\" }",
           "transition": "GreetInEnglish"
-        }
-      ],
-      "defaultCondition": {
-        "transition": "ChooseOnLanguage"
-      }
-    },
-    {
-      "name": "GreetInEnglish",
-      "type": "inject",
-      "data": {
-        "greeting": "Hello from Serverless Workflow, "
-      },
-      "transition": "GreetPerson"
-    },
-    {
-      "name": "ChooseOnLanguage",
-      "type": "switch",
-      "dataConditions": [
+        },
         {
-          "condition": "${ .country == \"ES\" }",
+          "condition": "${ .country == \"SP\" }",
           "transition": "GreetInSpanish"
         },
         {
@@ -54,6 +32,14 @@
       "defaultCondition": {
         "transition": "GreetInEnglish"
       }
+    },
+    {
+      "name": "GreetInEnglish",
+      "type": "inject",
+      "data": {
+        "language": "English"
+      },
+      "transition": "TranslateGreeting"
     },
     {
       "name": "GreetInSpanish",
@@ -74,32 +60,15 @@
     {
       "name": "TranslateGreeting",
       "type": "operation",
-      "actionMode": "sequential",
       "actions": [
         {
           "name": "translateGreeting",
           "functionRef": {
             "refName": "translateGreetingFunction",
             "arguments": {
-              "name": "${ .name }",
-              "language": "${ .language }"
-            }
-          }
-        }
-      ],
-      "transition": "GreetPerson"
-    },
-    {
-      "name": "GreetPerson",
-      "type": "operation",
-      "actions": [
-        {
-          "name": "greetAction",
-          "functionRef": {
-            "refName": "greetFunction",
-            "arguments": {
-              "message": "${ .workflowdata.greeting }"
-            }
+                  "name": "${ .name }",
+                  "language": "${ .language }"
+              }
           }
         }
       ],
