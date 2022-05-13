@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  getting-started-with-sw:
+    image: "com.thegreatapi/getting-started-with-sw:1.0.0-SNAPSHOT"
+    ports:
+      - "8080:8080"
+  translation-service:
+    image: "com.thegreatapi/translation-service:1.0.0-SNAPSHOT"
+    ports:
+      - "8081:8081"

@@ -4,7 +4,7 @@ info:
   title: translation-service API
   version: 1.0.0-SNAPSHOT
 servers:
-  - url: http://localhost:8081/
+  - url: http://translation-service:8081/
 paths:
   /translate:
     post:
