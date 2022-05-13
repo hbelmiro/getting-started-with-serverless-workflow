@@ -72,6 +72,9 @@
           }
         }
       ],
+      "stateDataFilter": {
+        "output": "${ {greeting: .greeting} }"
+      },
       "end": true
     }
   ]
