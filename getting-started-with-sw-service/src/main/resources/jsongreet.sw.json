@@ -7,9 +7,9 @@
   "start": "ChooseOnLanguage",
   "functions": [
     {
-      "name": "greetFunction",
-      "type": "custom",
-      "operation": "sysout"
+      "name": "JoinGreetingAndNameFunction",
+      "type": "expression",
+      "operation": ".greeting = .greeting+.name | .greeting"
     }
   ],
   "states": [
@@ -19,58 +19,62 @@
       "dataConditions": [
         {
           "condition": "${ .language == \"Portuguese\" }",
-          "transition": "GreetInPortuguese"
+          "transition": "InjectPortugueseGreeting"
         },
         {
           "condition": "${ .language == \"Spanish\" }",
-          "transition": "GreetInSpanish"
+          "transition": "InjectSpanishGreeting"
         }
       ],
       "defaultCondition": {
-        "transition": "GreetInEnglish"
+        "transition": "InjectEnglishGreeting"
       }
     },
     {
-      "name": "GreetInEnglish",
+      "name": "InjectEnglishGreeting",
       "type": "inject",
       "data": {
-        "greeting": "Hello from Serverless Workflow, ${ .name }"
+        "greeting": "Hello from Serverless Workflow, "
       },
-      "transition": "GreetPerson"
+      "transition": "JoinGreetingAndName"
     },
     {
-      "name": "GreetInPortuguese",
+      "name": "InjectPortugueseGreeting",
       "type": "inject",
       "data": {
-        "greeting": "Olá do Serverless Workflow, ${ .name }"
+        "greeting": "Olá do Serverless Workflow, "
       },
-      "transition": "GreetPerson"
+      "transition": "JoinGreetingAndName"
     },
     {
-      "name": "GreetInSpanish",
+      "name": "InjectSpanishGreeting",
       "type": "inject",
       "data": {
-        "greeting": "Saludos desde Serverless Workflow, ${ .name }"
+        "greeting": "Saludos desde Serverless Workflow, "
       },
-      "transition": "GreetPerson"
+      "transition": "JoinGreetingAndName"
     },
     {
-      "name": "GreetPerson",
+      "name": "JoinGreetingAndName",
       "type": "operation",
       "actions": [
         {
-          "name": "greetAction",
           "functionRef": {
-            "refName": "greetFunction",
+            "refName": "JoinGreetingAndNameFunction",
             "arguments": {
-              "message": ".greeting+.name"
+              "greeting": "${ .greeting }",
+              "name": "${ .name }"
             }
+          },
+          "actionDataFilter": {
+            "toStateData": "${ .greeting }"
           }
         }
       ],
-      "end": {
-        "terminate": true
-      }
+      "stateDataFilter": {
+        "output": "${ .greeting}"
+      },
+      "end": true
     }
   ]
 }
