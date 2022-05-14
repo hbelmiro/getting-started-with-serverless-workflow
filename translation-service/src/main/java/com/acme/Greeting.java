@@ -1,4 +1,4 @@
-package com.thegreatapi;
+package com.acme;
 
 public class Greeting {
 

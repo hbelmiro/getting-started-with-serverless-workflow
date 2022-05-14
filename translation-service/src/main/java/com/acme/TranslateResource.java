@@ -1,4 +1,4 @@
-package com.thegreatapi;
+package com.acme;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
