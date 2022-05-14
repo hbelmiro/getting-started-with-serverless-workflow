@@ -17,15 +17,15 @@
       "type": "switch",
       "dataConditions": [
         {
-          "condition": "${ .country == \"US\" }",
+          "condition": "${ .country == \"United States\" }",
           "transition": "GreetInEnglish"
         },
         {
-          "condition": "${ .country == \"SP\" }",
+          "condition": "${ .country == \"Spain\" }",
           "transition": "GreetInSpanish"
         },
         {
-          "condition": "${ .country == \"BR\" }",
+          "condition": "${ .country == \"Brazil\" }",
           "transition": "GreetInPortuguese"
         }
       ],
