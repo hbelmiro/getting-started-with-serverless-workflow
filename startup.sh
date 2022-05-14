@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd getting-started-with-sw || exit
+cd greeting-flow || exit
 ./mvnw clean package -Dquarkus.container-image.build=true
 
 cd ../translation-service || exit

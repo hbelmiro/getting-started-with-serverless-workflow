@@ -55,7 +55,7 @@
         </pluginManagement>
     </build>
     <modules>
-        <module>getting-started-with-sw</module>
+        <module>greeting-flow</module>
         <module>getting-started-with-sw-service</module>
         <module>translation-service</module>
     </modules>

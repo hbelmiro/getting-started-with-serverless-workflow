@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   getting-started-with-sw:
-    image: "com.thegreatapi/getting-started-with-sw:1.0.0-SNAPSHOT"
+    image: "com.thegreatapi/greeting-flow:1.0.0-SNAPSHOT"
     ports:
       - "8080:8080"
   translation-service:
