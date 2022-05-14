@@ -1,5 +1,5 @@
 {
-  "id": "jsongreet",
+  "id": "greeting",
   "version": "1.0",
   "specVersion": "0.8",
   "name": "Greeting workflow",
