@@ -4,6 +4,12 @@ info:
   title: translation-service API
   version: 1.0.0-SNAPSHOT
 servers:
+# Use localhost when running locally (quarkus dev)
+#  - url: http://localhost:8081/
+
+# Use translation-service when running with docker-compose
+#  - url: http://translation-service:8081/
+
   - url: http://translation-service:8081/
 paths:
   /translate:
