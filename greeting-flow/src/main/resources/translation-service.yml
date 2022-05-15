@@ -10,7 +10,7 @@ servers:
 # Use translation-service when running with docker-compose
 #  - url: http://translation-service:8081/
 
-  - url: http://translation-service:8081/
+  - url: http://localhost:8081/
 paths:
   /translate:
     post:
