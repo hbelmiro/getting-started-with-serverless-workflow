@@ -37,14 +37,6 @@ cd international-greeting-service
 
 The above command will start the international-greeting-service at port 8081.
 
----
-**NOTE**
-
-Running the services locally requires you to update the international-greeting-service URL
-in the [OpenAPI document](greeting-flow/src/main/resources/international-greeting-service.yml).
-
----
-
 When both services are up and running, you can try the following command:
 
 ```shell
