@@ -4,7 +4,7 @@ services:
     image: "com.acme/greeting-flow:1.0"
     ports:
       - "8080:8080"
-  translation-service:
-    image: "com.acme/translation-service:1.0"
+  international-greeting-service:
+    image: "com.acme/international-greeting-service:1.0"
     ports:
       - "8081:8081"

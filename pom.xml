@@ -56,6 +56,6 @@
     </build>
     <modules>
         <module>greeting-flow</module>
-        <module>translation-service</module>
+        <module>international-greeting-service</module>
     </modules>
 </project>

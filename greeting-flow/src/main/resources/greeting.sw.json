@@ -8,7 +8,7 @@
   "functions": [
     {
       "name": "translateGreetingFunction",
-      "operation": "translation-service.yml#translate"
+      "operation": "international-greeting-service.yml#translate"
     }
   ],
   "states": [

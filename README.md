@@ -2,7 +2,7 @@
 
 This demo is composed of two services:
 - The [workflow service (greeting-flow)](greeting-flow)
-- The [remote service (translation-service)](translation-service)
+- The [remote service (international-greeting-service)](international-greeting-service)
 
 You can see both services in action by running the following command:
 
@@ -31,7 +31,7 @@ cd greeting-flow
 The above command will start the workflow service at port 8080.
 
 ```shell
-cd translation-service
+cd international-greeting-service
 ./mvnw quarkus:dev
 ```
 
@@ -40,8 +40,8 @@ The above command will start the translation service at port 8081.
 ---
 **NOTE**
 
-Running the services locally requires you to update the translation-service URL
-in the [OpenAPI document](greeting-flow/src/main/resources/translation-service.yml).
+Running the services locally requires you to update the international-greeting-service URL
+in the [OpenAPI document](greeting-flow/src/main/resources/international-greeting-service.yml).
 
 ---
 
