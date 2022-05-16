@@ -7,8 +7,8 @@
   "start": "ChooseOnCountry",
   "functions": [
     {
-      "name": "translateGreetingFunction",
-      "operation": "international-greeting-service.yml#translate"
+      "name": "getGreetingFunction",
+      "operation": "international-greeting-service.yml#getGreeting"
     }
   ],
   "states": [
@@ -39,7 +39,7 @@
       "data": {
         "language": "English"
       },
-      "transition": "TranslateGreeting"
+      "transition": "GetGreeting"
     },
     {
       "name": "GreetInSpanish",
@@ -47,7 +47,7 @@
       "data": {
         "language": "Spanish"
       },
-      "transition": "TranslateGreeting"
+      "transition": "GetGreeting"
     },
     {
       "name": "GreetInPortuguese",
@@ -55,16 +55,16 @@
       "data": {
         "language": "Portuguese"
       },
-      "transition": "TranslateGreeting"
+      "transition": "GetGreeting"
     },
     {
-      "name": "TranslateGreeting",
+      "name": "GetGreeting",
       "type": "operation",
       "actions": [
         {
-          "name": "translateGreeting",
+          "name": "getGreeting",
           "functionRef": {
-            "refName": "translateGreetingFunction",
+            "refName": "getGreetingFunction",
             "arguments": {
                   "name": "${ .name }",
                   "language": "${ .language }"

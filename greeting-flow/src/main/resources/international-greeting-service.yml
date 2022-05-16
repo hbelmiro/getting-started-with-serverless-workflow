@@ -12,11 +12,11 @@ servers:
 
   - url: http://international-greeting-service:8081/
 paths:
-  /translate:
+  /getGreeting:
     post:
       tags:
-      - Translate Resource
-      operationId: translate
+      - International Greeting Resource
+      operationId: getGreeting
       requestBody:
         content:
           application/json:

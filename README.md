@@ -35,7 +35,7 @@ cd international-greeting-service
 ./mvnw quarkus:dev
 ```
 
-The above command will start the translation service at port 8081.
+The above command will start the international-greeting-service at port 8081.
 
 ---
 **NOTE**

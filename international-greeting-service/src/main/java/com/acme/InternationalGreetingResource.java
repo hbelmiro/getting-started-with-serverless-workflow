@@ -6,13 +6,13 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-@Path("/translate")
-public class TranslateResource {
+@Path("/getGreeting")
+public class InternationalGreetingResource {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Greeting translate(Data data) {
+    public Greeting getGreeting(Data data) {
         switch (data.getLanguage()) {
             case "Portuguese":
                 return new Greeting("Saudações do Serverless Workflow, " + data.getName() + "!");
