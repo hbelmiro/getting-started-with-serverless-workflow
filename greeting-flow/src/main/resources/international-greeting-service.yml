@@ -4,13 +4,7 @@ info:
   title: international-greeting-service API
   version: '1.0'
 servers:
-# Use localhost when running locally (quarkus dev)
-#  - url: http://localhost:8081/
-
-# Use international-greeting-service when running with docker-compose
-#  - url: http://international-greeting-service:8081/
-
-  - url: http://international-greeting-service:8081/
+  - url: http://localhost:8081/
 paths:
   /getGreeting:
     post:

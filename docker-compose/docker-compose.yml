@@ -4,6 +4,10 @@ services:
     image: "com.acme/greeting-flow:1.0"
     ports:
       - "8080:8080"
+    environment:
+      # Defines the base URL for the international-greeting-service.
+      # "internationalgreetingservice" is the sanitized filename of the OpenAPI document.
+      - org.kogito.openapi.client.internationalgreetingservice.base_path=http://international-greeting-service:8081
   international-greeting-service:
     image: "com.acme/international-greeting-service:1.0"
     ports:
