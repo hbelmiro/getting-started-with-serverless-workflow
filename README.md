@@ -1,4 +1,8 @@
-# Getting Started With Serverless Workflow
+# Getting Started With Service Calls And Serverless Workflow
+
+Read the [post related to this repository on the KIE Blog](https://blog.kie.org/2022/05/getting-started-with-service-calls-and-serverless-workflow.html).
+
+----
 
 This demo is composed of two services:
 - The [workflow service (greeting-flow)](greeting-flow)
