@@ -2,14 +2,12 @@
 openapi: 3.0.3
 info:
   title: international-greeting-service API
-  version: '1.0'
-servers:
-  - url: http://localhost:8081/
+  version: "1.0"
 paths:
   /getGreeting:
     post:
       tags:
-      - International Greeting Resource
+        - International Greeting Resource
       operationId: getGreeting
       requestBody:
         content:
@@ -22,7 +20,7 @@ paths:
           content:
             application/json:
               schema:
-                type: string
+                $ref: '#/components/schemas/Greeting'
 components:
   schemas:
     Data:
@@ -31,4 +29,9 @@ components:
         language:
           type: string
         name:
+          type: string
+    Greeting:
+      type: object
+      properties:
+        greeting:
           type: string

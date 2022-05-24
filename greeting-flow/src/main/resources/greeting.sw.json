@@ -8,7 +8,7 @@
   "functions": [
     {
       "name": "getGreetingFunction",
-      "operation": "international-greeting-service.yml#getGreeting"
+      "operation": "openapi.yml#getGreeting"
     }
   ],
   "states": [
