@@ -2,7 +2,20 @@
 
 Read the [post related to this repository on the KIE Blog](https://blog.kie.org/2022/05/getting-started-with-service-calls-and-serverless-workflow.html).
 
-The code used in the KIE Blog post is tagged as [`kie-blog-post`](https://github.com/hbelmiro/getting-started-with-serverless-workflow/tree/kie-blog-post). The `main` branch is intended to receive updates and improvements. So, its code may differ from the blog post.
+## Deploying to Knative
+
+Run the following command from the root of each service to deploy them to Knative:
+
+```shell
+mvn clean package -Dquarkus.kubernetes.deploy=true
+```
+
+---
+**NOTE**
+
+The container images need to be available for Knative.
+
+---
 
 ----
 
