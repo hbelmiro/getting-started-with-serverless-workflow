@@ -1,11 +1,11 @@
 package com.acme;
 
 import io.quarkus.test.junit.QuarkusTest;
-import jakarta.inject.Inject;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import javax.inject.Inject;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
