@@ -46,6 +46,7 @@ jobs:
       run: mvn -B verify -Pnative --file pom.xml
 
   dependabot:
+    permissions: write-all
     name: 'Dependabot'
     needs: [ native ]
     runs-on: ubuntu-latest
